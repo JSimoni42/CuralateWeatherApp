@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../styles/search.css'
+import '../../styles/search.css';
 
 class Search extends Component {
   constructor(){
@@ -16,7 +16,6 @@ class Search extends Component {
   render(){
     return(
       <section>
-        <button></button>
         <form onSubmit={() => this.onLocation()}>
           <input className="search-bar"
                 placeholder="Search for a Location"
