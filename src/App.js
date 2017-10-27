@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   navigate(page){
-    this.setState({ page  })
+    this.setState({ page })
   }
 
   render() {

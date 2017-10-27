@@ -5,7 +5,10 @@ class Content extends Component {
 
   render(){
     const pageFinder = {
-      'search': <Search />
+      'search': <Search />,
+      'current': "I am Current!",
+      'history': 'I am history!',
+      'about': 'I am about!'
     }
     return(
       <main>
