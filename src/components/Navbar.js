@@ -3,8 +3,6 @@ import '../styles/nav_bar.css';
 
 class Navbar extends Component {
 
-
-
   render() {
     return(
       <nav className="navbar">
