@@ -8,9 +8,9 @@ class Content extends Component {
       'search': <Search />
     }
     return(
-      <div>
+      <main>
         {pageFinder[this.props.page]}
-      </div>
+      </main>
     );
   }
 }

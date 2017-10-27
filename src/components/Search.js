@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import '../styles/search.css'
 
 class Search extends Component {
   thing(){
-    
+
   }
 
   render(){
     return(
-      <form onSubmit={() => this.thing()}>
-        <input className="search-bar" placeholder="Search for things" />
-      </form>
+      <section>
+        <form onSubmit={() => this.thing()}>
+          <input className="search-bar" placeholder="Search for a Location" />
+        </form>
+      </section>
     );
   }
 }
