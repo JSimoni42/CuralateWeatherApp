@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
-  render(){
+  constructor() {
+    super();
+    this.state = {
+      search: "",
+    }
+  }
+
+  render() {
     return(
-      <div> Search bar goes here </div>
+      <div>
+        <h1>Enter Location Name</h1>
+        <input value={this.state.search} onChange={(search) => this.setState({ search })} />
+      </div>
     );
   }
 }
