@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search';
+import Current from './Current';
 
 class Content extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class Content extends Component {
 
   render(){
     const pageFinder = {
-      'search': <Search handleSearch={this.handleSearch}/>
+      'search': <Search handleSearch={this.handleSearch}/>,
+      'current': <Current query={this.state.query} />,
     }
     return(
       <div>
