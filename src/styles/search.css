@@ -9,6 +9,7 @@
 
 #search-component input[type='text']:focus {
   border: 2px blue solid;
+  outline: none;
 }
 
 #search-component input[type='submit'] {

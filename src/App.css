@@ -2,33 +2,6 @@
   text-align: center;
 }
 
-.navbar {
-  display: grid;
-  grid-template-columns: 1fr 30% 30% 1fr;
-  height: 100px;
-  color: white;
-  background-color: black;
-}
-
-.navbar h1 {
-  grid-column: 2;
-  align-self: center;
-}
-
-.navbar h1:hover{
-  cursor: pointer;
-}
-
-.navbar ul {
-  grid-column: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  list-style: none;
-  align-items: center;
-  font-weight: bold;
-  grid-column-gap: 10px;
-}
-
-.navbar ul:hover {
-  cursor:pointer;
+main {
+  margin-top: 20px;
 }
