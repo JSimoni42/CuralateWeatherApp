@@ -1,0 +1,20 @@
+#search-component input[type='text'] {
+  height: 30px;
+  margin: 10px 20px 0 0;
+  margin-top: 10px;
+  width: 50%;
+  border-radius: 5px;
+  border: 2px black solid;
+}
+
+#search-component input[type='text']:focus {
+  border: 2px blue solid;
+}
+
+#search-component input[type='submit'] {
+  border: 2px black solid;
+  background: none;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+}
