@@ -7,6 +7,11 @@ class Search extends Component {
     this.state = {
       search: "",
     }
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch() {
+    // Call callback to pass search data back up the tree.
   }
 
   render() {
