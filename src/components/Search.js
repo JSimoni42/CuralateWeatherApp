@@ -7,19 +7,16 @@ class Search extends Component {
     this.state = {
       search: "",
     }
-    this.handleSearch = this.handleSearch.bind(this);
-  }
-
-  handleSearch() {
-    // Call callback to pass search data back up the tree.
   }
 
   render() {
     return(
       <div id="search-component">
         <h1>Enter Location Name</h1>
-        <input type="text" value={this.state.search} onChange={(search) => this.setState({ search })} />
-        <input type="submit" value="Search" onClick={this.handleSearch} />
+        <form onSubmit={() => this.props.handleSearch(this.state.search)}>
+          <input type="text" value={this.state.search} onChange={(search) => this.setState({ search })} />
+          <input type="submit" value="Search" />
+        </form>
       </div>
     );
   }

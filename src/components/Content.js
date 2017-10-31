@@ -2,14 +2,27 @@ import React, { Component } from 'react';
 import Search from './Search';
 
 class Content extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: "",
+      page: props.page,
+    }
+
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(query) {
+    this.setState({ query, page: 'current' })
+  }
 
   render(){
     const pageFinder = {
-      'search': <Search />
+      'search': <Search handleSearch={this.handleSearch}/>
     }
     return(
       <div>
-        {pageFinder[this.props.page]}
+        {pageFinder[this.state.page]}
       </div>
     );
   }
