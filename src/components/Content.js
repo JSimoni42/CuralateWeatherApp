@@ -13,6 +13,10 @@ class Content extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ page: nextProps.page })
+  }
+
   handleSearch(query) {
     this.setState({ query, page: 'current' })
   }
@@ -21,6 +25,8 @@ class Content extends Component {
     const pageFinder = {
       'search': <Search handleSearch={this.handleSearch}/>,
       'current': <Current query={this.state.query} />,
+      'history': "I am history!",
+      'about': "I am about!",
     }
     return(
       <div>

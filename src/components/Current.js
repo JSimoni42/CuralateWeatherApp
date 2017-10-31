@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Current extends Component {
   render() {
     return(
-      <div>I am a search page!</div>
+      <div>I am a current page!</div>
     );
   }
 }
