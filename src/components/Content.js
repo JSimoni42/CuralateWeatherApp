@@ -7,7 +7,7 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: "",
+      query: null,
       page: props.page,
     }
 
@@ -19,14 +19,24 @@ class Content extends Component {
   }
 
   handleSearch(query) {
-    this.setState({ query, page: 'current' })
+    this.setState({ query: this.getLocation(query), page: 'current' })
+  }
+
+  getLocation(query) {
+    if (!query.coords) {
+      console.log(`Geolocating ${query.query_string}!`)
+      return 'geolocation';
+    } else {
+      console.log('Got a location!');
+      return query;
+    }
   }
 
   render(){
     const pageFinder = {
       'search': <Search handleSearch={this.handleSearch}/>,
-      'current': <Current query={this.state.query} />,
-      'history': <History query={this.state.query} />,
+      'current': <Current location={this.state.query} />,
+      'history': <History location={this.state.query} />,
       'about': "I am about!",
     }
     return(
