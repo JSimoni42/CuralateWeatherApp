@@ -6,7 +6,11 @@ import {LineChart,
         YAxis,
         Tooltip
       } from 'recharts';
-import '../styles/current.css'
+import '../styles/current.css';
+import drop from '../img/drop.svg';
+import flash from '../img/flash.svg';
+import sunny from '../img/sunny.svg';
+import snow from '../img/snowflake.svg';
 
 class Current extends Component {
   constructor(){
@@ -18,8 +22,10 @@ class Current extends Component {
   }
 
   changeDescription(event) {
-    const currentDescription = event.activeTooltipIndex;
-    this.setState({ currentDescription });
+    if (event) {
+      const currentDescription = event.activeTooltipIndex;
+      this.setState({ currentDescription });
+    }
   }
 
   render() {
@@ -34,14 +40,14 @@ class Current extends Component {
     ];
 
     const descriptions = [
-      "Today: Partly wenis with a chance of rain",
-      "Tomorrow: All sunny with tons of sun",
-      "Monday: Who cares?",
-      "Tuesday: Weather.",
-      "Wednesday: Clouds with sky behind them, maybe some stars at night",
-      "Thursday: Who reads this, anyway?",
-      "Friday: I do weather things."
-    ]
+      {desc: "Today: Partly wenis with a chance of rain", icon: drop},
+      {desc: "Tomorrow: All sunny with tons of sun", icon: sunny},
+      {desc: "Monday: Who cares?", icon: flash},
+      {desc: "Tuesday: Weather.", icon: flash},
+      {desc: "Wednesday: Clouds with sky behind them, maybe some stars at night", icon: snow},
+      {desc: "Thursday: Who reads this, anyway?", icon: flash},
+      {desc: "Friday: I do weather things.", icon: snow}
+    ];
 
     return(
       <div>
@@ -54,7 +60,8 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-        <p>{descriptions[this.state.currentDescription]}</p>
+        <p>{descriptions[this.state.currentDescription].desc}</p>
+        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} />
         <p>Click on another day to see its description above</p>
       </div>
     );
