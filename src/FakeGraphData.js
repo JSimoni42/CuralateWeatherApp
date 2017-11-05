@@ -14,7 +14,7 @@ export const data  = [
 ];
 
 export const descriptions = [
-  {desc: "Today: Partly wenis with a chance of rain", icon: drop},
+  {desc: "Today: Partly sunny with a chance of rain", icon: drop},
   {desc: "Tomorrow: All sunny with tons of sun", icon: sunny},
   {desc: "Monday: Who cares?", icon: flash},
   {desc: "Tuesday: Weather.", icon: flash},
