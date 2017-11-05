@@ -9,6 +9,19 @@ import {LineChart,
 import '../styles/current.css'
 
 class Current extends Component {
+  constructor(){
+    super();
+    this.state = {
+      currentDescription: 0,
+    }
+    this.changeDescription = this.changeDescription.bind(this);
+  }
+
+  changeDescription(event) {
+    const currentDescription = event.activeTooltipIndex;
+    this.setState({ currentDescription });
+  }
+
   render() {
     const data = [
       {name: 'Today', temp: 78, humidity: 90},
@@ -19,8 +32,21 @@ class Current extends Component {
      {name: 'Thursday', temp: 70, humidity: 10},
      {name: 'Friday', temp: 65, humidity: 5},
     ];
+
+    const descriptions = [
+      "Today: Partly wenis with a chance of rain",
+      "Tomorrow: All sunny with tons of sun",
+      "Monday: Who cares?",
+      "Tuesday: Weather.",
+      "Wednesday: Clouds with sky behind them, maybe some stars at night",
+      "Thursday: Who reads this, anyway?",
+      "Friday: I do weather things."
+    ]
+
     return(
-        <LineChart className="current-chart" width={800} height={400} data={data}>
+      <div>
+        <h1>Current Forecast</h1>
+        <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
           <CartesianGrid stroke="#ccc" />
@@ -28,6 +54,9 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
+        <p>{descriptions[this.state.currentDescription]}</p>
+        <p>Click on another day to see its description above</p>
+      </div>
     );
   }
 }
