@@ -25,7 +25,7 @@
   width: 70%;
   grid-column: 2;
   justify-self: center;
-  grid-row: 1;
+  grid-row: 2;
   align-items: center;
 }
 
@@ -34,7 +34,7 @@
   border: 5px black solid;
   border-radius: 10px;
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
   justify-self: end;
 }
 
@@ -43,7 +43,12 @@
   width: 4em;
 }
 
-#search-component #input-container {
+#search-component h1 {
+  grid-column: 2;
+}
+
+#search-component {
   display: grid;
   grid-template-columns: 1fr 70% 1fr;
+  grid-template-rows: 1fr 1fr;
 }

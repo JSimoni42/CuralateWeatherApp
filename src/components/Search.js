@@ -25,13 +25,11 @@ class Search extends Component {
     return(
       <div id="search-component">
         <h1>Enter Location Name</h1>
-        <div id="input-container">
-          <form onSubmit={() => this.props.handleSearch(this.state.search)}>
-            <input type="text" value={this.state.search} onChange={this.handleInput} />
-            <input type="submit" value="Search" />
-          </form>
-          <img id="location-button" src={location} onClick={this.getLocation} />
-        </div>
+        <form onSubmit={() => this.props.handleSearch(this.state.search)}>
+          <input type="text" value={this.state.search} onChange={this.handleInput} />
+          <input type="submit" value="Search" />
+        </form>
+        <img id="location-button" src={location} onClick={this.getLocation} />
       </div>
     );
   }
