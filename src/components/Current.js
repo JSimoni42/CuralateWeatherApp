@@ -6,6 +6,8 @@ import {LineChart,
         YAxis,
         Tooltip
       } from 'recharts';
+import '../styles/current.css'
+
 class Current extends Component {
   render() {
     const data = [
@@ -18,8 +20,7 @@ class Current extends Component {
      {name: 'Friday', temp: 65, humidity: 5},
     ];
     return(
-      <div class="chart-container">
-        <LineChart width={400} height={400} data={data}>
+        <LineChart className="current-chart" width={800} height={400} data={data}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
           <CartesianGrid stroke="#ccc" />
@@ -27,7 +28,6 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-      </div>
     );
   }
 }
