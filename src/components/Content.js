@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Current from './Current';
+import History from './History';
 
 class Content extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Content extends Component {
     const pageFinder = {
       'search': <Search handleSearch={this.handleSearch}/>,
       'current': <Current query={this.state.query} />,
-      'history': "I am history!",
+      'history': <History query={this.state.query} />,
       'about': "I am about!",
     }
     return(
