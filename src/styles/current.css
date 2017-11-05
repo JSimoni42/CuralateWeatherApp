@@ -1,3 +1,8 @@
 .current-chart {
   margin: 2em auto;
 }
+
+.weather-icon {
+  max-width: 100%;
+  width: 2em;
+}
