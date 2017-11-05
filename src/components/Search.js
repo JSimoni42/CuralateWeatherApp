@@ -18,14 +18,20 @@ class Search extends Component {
   }
 
   getLocation(event) {
-    console.log(event);
+    navigator.geolocation.getCurrentPosition((pos) => {
+      this.props.handleSearch({coords: pos})
+    }, (err) => {
+      console.warn(err);
+    }, {
+      timeout: 100000
+    });
   }
 
   render() {
     return(
       <div id="search-component">
         <h1>Enter Location Name</h1>
-        <form onSubmit={() => this.props.handleSearch(this.state.search)}>
+        <form onSubmit={() => this.props.handleSearch({query_string: this.state.search})}>
           <input type="text" value={this.state.search} onChange={this.handleInput} />
           <input type="submit" value="Search" />
         </form>
