@@ -38,7 +38,7 @@ class Current extends Component {
           <Tooltip />
         </LineChart>
         <p>{descriptions[this.state.currentDescription].desc}</p>
-        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} />
+        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
         <p>Click on another day to see its description above</p>
       </div>
     );

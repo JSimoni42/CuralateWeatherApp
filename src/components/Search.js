@@ -29,7 +29,7 @@ class Search extends Component {
           <input type="text" value={this.state.search} onChange={this.handleInput} />
           <input type="submit" value="Search" />
         </form>
-        <img id="location-button" src={location} onClick={this.getLocation} />
+        <img id="location-button" src={location} onClick={this.getLocation} alt="location-button" />
       </div>
     );
   }
