@@ -28,7 +28,7 @@ class History extends Component {
   render() {
     return(
       <div>
-        <h1>Current Forecast</h1>
+        <h1>Past 7 Days</h1>
         <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
