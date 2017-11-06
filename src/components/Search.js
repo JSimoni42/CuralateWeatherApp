@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import location from "../img/location.svg"
+import location from "../img/location.svg";
 import '../styles/search.css';
 
 class Search extends Component {
@@ -7,6 +7,7 @@ class Search extends Component {
     super();
     this.state = {
       search: "",
+      address: '',
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -28,11 +29,11 @@ class Search extends Component {
   }
 
   render() {
+
     return(
       <div id="search-component">
         <h1>Enter Location Name</h1>
         <form onSubmit={() => this.props.handleSearch({query_string: this.state.search})}>
-          <input type="text" value={this.state.search} onChange={this.handleInput} />
           <input type="submit" value="Search" />
         </form>
         <img id="location-button" src={location} onClick={this.getLocation} alt="location-button" />
