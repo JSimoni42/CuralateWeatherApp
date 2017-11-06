@@ -28,11 +28,11 @@ class Current extends Component {
 
   render() {
     if (this.props.location === 'geolocation') {
-      console.log("Geolocation!");
+      console.log("Current: Geolocation!");
     } else if (this.props.location) {
-      console.log(this.props.location.coords);
+      console.log(`Current: ${this.props.location.coords.latitude}, ${this.props.location.coords.longitude}`);
     } else {
-      console.log("Didn't receive props!");
+      console.log("Current: Didn't receive props!");
     }
 
     return(

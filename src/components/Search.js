@@ -19,7 +19,7 @@ class Search extends Component {
 
   getLocation(event) {
     navigator.geolocation.getCurrentPosition((pos) => {
-      this.props.handleSearch({coords: pos})
+      this.props.handleSearch({coords: pos.coords})
     }, (err) => {
       console.warn(err);
     }, {

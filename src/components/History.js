@@ -26,6 +26,14 @@ class History extends Component {
   }
 
   render() {
+    if (this.props.location === 'geolocation') {
+      console.log("History: Geolocation!");
+    } else if (this.props.location) {
+      console.log(`History: ${this.props.location.coords.latitude}, ${this.props.location.coords.longitude}`);
+    } else {
+      console.log("History: Didn't receive props!");
+    }
+
     return(
       <div>
         <h1>Past 7 Days</h1>
