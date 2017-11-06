@@ -2,7 +2,7 @@
   height: 30px;
   margin: 10px 20px 0 0;
   margin-top: 10px;
-  width: 80%;
+  width: 100%;
   border-radius: 5px;
   border: 2px black solid;
 }
@@ -15,9 +15,23 @@
 #search-component input[type='submit'] {
   border: 2px black solid;
   background: none;
+  margin-left: 2em;
   font-size: 1em;
   padding: 10px;
   border-radius: 5px;
+}
+
+#search-component input[type='submit']:hover {
+  background: black;
+  color: white;
+}
+
+.autocomplete-container {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0px;
+  width: 80%;
+  clear: both;
 }
 
 #search-component form {
