@@ -16,6 +16,8 @@ class Search extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  // ChIJidZEkT4VkFQR9ICo-0-86QY
+
   componentWillMount() {
     const script = document.createElement("script");
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyK__nnyR25xifF6O_zOWAsTvsbmR3fw&libraries=places";
@@ -28,7 +30,6 @@ class Search extends Component {
   }
 
   handleInput(new_search) {
-    console.log(new_search);
     this.setState({ search: new_search });
   }
 
@@ -36,8 +37,11 @@ class Search extends Component {
     event.preventDefault();
 
     geocodeByAddress(this.state.search)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
+      .then(results => {
+        console.log('Place ID:', results[0].place_id);
+        console.log('Place Name:', results[0].formatted_address);
+        console.log(getLatLng(results[0]));
+      })
       .catch(error => console.error("Error", error));
   }
 
