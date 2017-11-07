@@ -23,12 +23,19 @@ class Search extends Component {
   getLocation(event) {
     navigator.geolocation.getCurrentPosition((pos) => {
       console.log("Coordinates:", pos.coords);
-      console.log(Object.getOwnPropertyNames(googleMapsClient));
+      const latitude = pos.coords.latitude;
+      const longitude = pos.coords.longitude;
+      let placeId = null;
+      let formatted_address = null;
       googleMapsClient.reverseGeocode({
         latlng: [pos.coords.latitude, pos.coords.longitude],
       }, (err, resp) => {
-        if(err) {
-          console.log(resp.json.results);          
+        if(!err) {
+          formatted_address = resp.json.results[0].formatted_address;
+          placeId = resp.json.results[0].place_id;
+          console.log(formatted_address);
+          console.log(placeId);
+          console.log("Navigate away!!!");
         }
       })
       // this.props.handleSearch({coords: pos.coords})
