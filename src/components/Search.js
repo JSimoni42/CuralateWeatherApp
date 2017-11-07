@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import location from "../img/location.svg"
 import '../styles/search.css';
+const googleMapsClient = require('@google/maps').createClient({
+  key: "AIzaSyDsyK__nnyR25xifF6O_zOWAsTvsbmR3fw"
+});
 
 class Search extends Component {
   constructor() {
@@ -19,7 +22,16 @@ class Search extends Component {
 
   getLocation(event) {
     navigator.geolocation.getCurrentPosition((pos) => {
-      this.props.handleSearch({coords: pos.coords})
+      console.log("Coordinates:", pos.coords);
+      console.log(Object.getOwnPropertyNames(googleMapsClient));
+      googleMapsClient.reverseGeocode({
+        latlng: [pos.coords.latitude, pos.coords.longitude],
+      }, (err, resp) => {
+        if(err) {
+          console.log(resp.json.results);          
+        }
+      })
+      // this.props.handleSearch({coords: pos.coords})
     }, (err) => {
       console.warn(err);
     }, {
