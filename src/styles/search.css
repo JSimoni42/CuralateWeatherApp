@@ -5,6 +5,8 @@
   width: 100%;
   border-radius: 5px;
   border: 2px black solid;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 #search-component input[type='text']:focus {
