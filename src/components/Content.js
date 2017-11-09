@@ -19,18 +19,9 @@ class Content extends Component {
   }
 
   handleSearch(query) {
-    this.setState({ query: this.getLocation(query), page: 'current' })
+    this.setState({ query, page: 'current' })
   }
 
-  getLocation(query) {
-    if (!query.coords) {
-      console.log(`Geolocating ${query.query_string}!`)
-      return 'geolocation';
-    } else {
-      console.log('Got a location!');
-      return query;
-    }
-  }
 
   render(){
     const pageFinder = {

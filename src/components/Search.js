@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import location from "../img/location.svg";
 import '../styles/search.css';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 
 class Search extends Component {
   constructor() {
@@ -38,9 +38,12 @@ class Search extends Component {
 
     geocodeByAddress(this.state.search)
       .then(results => {
-        console.log('Place ID:', results[0].place_id);
-        console.log('Place Name:', results[0].formatted_address);
-        console.log(getLatLng(results[0]));
+        const place_id = results[0].place_id;
+        const place_name = results[0].formatted_address;
+        const latitude = results[0].geometry.location.lat();
+        const longitude = results[0].geometry.location.lng();
+        const res = {place_id, place_name, location: { latitude, longitude }};
+        this.props.handleSearch(res);
       })
       .catch(error => console.error("Error", error));
   }
