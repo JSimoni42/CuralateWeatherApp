@@ -19,7 +19,7 @@ class Content extends Component {
   }
 
   handleSearch(query) {
-    this.setState({ query, page: 'current' })
+    this.setState({ query, page: 'current' });
   }
 
 
