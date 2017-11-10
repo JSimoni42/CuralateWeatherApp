@@ -8,7 +8,6 @@ class Search extends Component {
     super();
     this.state = {
       search: "",
-      api_ready: false,
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -17,25 +16,6 @@ class Search extends Component {
   }
 
   // ChIJidZEkT4VkFQR9ICo-0-86QY
-
-  componentWillMount() {
-    const script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyK__nnyR25xifF6O_zOWAsTvsbmR3fw&libraries=places";
-
-    script.onload = () => {
-      this.setState({ api_ready: true });
-    }
-
-    script.id = "maps-api";
-
-    document.body.appendChild(script);
-  }
-
-  componentWillUnmount(){  // Was appending maps api to dom multiple times
-    const script = document.getElementById("maps-api");
-
-    document.body.removeChild(script);
-  }
 
   handleInput(new_search) {
     this.setState({ search: new_search });
@@ -80,7 +60,7 @@ class Search extends Component {
       <div id="search-component">
         <h1>Enter Location Name</h1>
         <form onSubmit={this.handleFormSubmit}>
-          {this.state.api_ready ? <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses}/> : ""}
+          {this.props.api_ready ? <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses}/> : ""}
           <input type="submit" value="Search" />
         </form>
         <img id="location-button" src={location} onClick={this.getLocation} alt="location-button" />

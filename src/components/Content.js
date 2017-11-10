@@ -24,7 +24,7 @@ class Content extends Component {
 
   render(){
     const pageFinder = {
-      'search': <Search handleSearch={this.handleSearch}/>,
+      'search': <Search handleSearch={this.handleSearch} api_ready={this.props.api_ready}/>,
       'current': <Current location={this.state.query} />,
       'history': <History location={this.state.query} />,
       'about': "I am about!",
