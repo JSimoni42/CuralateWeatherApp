@@ -12,7 +12,6 @@ import { data, descriptions } from '../FakeGraphData';
 class Current extends Component {
   constructor(){
     super();
-
     this.state = {
       currentDescription: 0,
     }

@@ -26,7 +26,15 @@ class Search extends Component {
       this.setState({ api_ready: true });
     }
 
+    script.id = "maps-api";
+
     document.body.appendChild(script);
+  }
+
+  componentWillUnmount(){  // Was appending maps api to dom multiple times
+    const script = document.getElementById("maps-api");
+
+    document.body.removeChild(script);
   }
 
   handleInput(new_search) {

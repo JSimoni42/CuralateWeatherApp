@@ -15,13 +15,13 @@ class Content extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("New page:", nextProps.page);
     this.setState({ page: nextProps.page })
   }
 
   handleSearch(query) {
     this.setState({ query, page: 'current' });
   }
-
 
   render(){
     const pageFinder = {
