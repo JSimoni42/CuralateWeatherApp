@@ -42,7 +42,7 @@ class Search extends Component {
         const place_name = results[0].formatted_address;
         const latitude = results[0].geometry.location.lat();
         const longitude = results[0].geometry.location.lng();
-        const res = {place_id, place_name, location: { latitude, longitude }};
+        const res = {place_id, place_name, coords: { latitude, longitude }};
         this.props.handleSearch(res);
       })
       .catch(error => console.error("Error", error));
