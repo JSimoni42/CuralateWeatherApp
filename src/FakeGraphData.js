@@ -22,3 +22,5 @@ export const descriptions = [
   {desc: "Thursday: Who reads this, anyway?", icon: flash},
   {desc: "Friday: I do weather things.", icon: snow}
 ];
+
+export const current = {"time":1510332964,"summary":"Partly Cloudy","icon":"partly-cloudy-day","nearestStormDistance":45,"nearestStormBearing":357,"precipIntensity":0,"precipProbability":0,"temperature":36.84,"apparentTemperature":30.16,"dewPoint":15.15,"humidity":0.41,"pressure":1023.8,"windSpeed":9.1,"windGust":18.03,"windBearing":323,"cloudCover":0.32,"uvIndex":2,"visibility":10,"ozone":289.91,"windDirection":"NW","nearestStormDirection":"N","dateTime":"2017-11-10T16:56:04.000Z"}

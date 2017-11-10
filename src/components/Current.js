@@ -15,7 +15,11 @@ class Current extends Component {
     super();
     this.state = {
       currentDescription: 0,
+      currentWeather: "",
     }
+
+    DarkSkyApi.apiKey = '70cb406e46fe0848ebbd51bc18b2a2df';
+
     this.changeDescription = this.changeDescription.bind(this);
   }
 

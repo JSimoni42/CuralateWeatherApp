@@ -27,22 +27,27 @@ class History extends Component {
   }
 
   render() {
-    return(
+    // return(
+    //   <div>
+    //     <h1>Past 7 Days</h1>
+    //     <h2>{this.props.location.place_name}</h2>
+    //     <h3>{this.props.location.coords.latitude}, {this.props.location.coords.longitude}</h3>
+    //     <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
+    //       <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+    //       <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
+    //       <CartesianGrid stroke="#ccc" />
+    //       <XAxis dataKey="name" />
+    //       <YAxis />
+    //       <Tooltip />
+    //     </LineChart>
+    //     <p>{descriptions[this.state.currentDescription].desc}</p>
+    //     <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
+    //     <p>Click on another day to see its description above</p>
+    //   </div>
+    // );
+    return (
       <div>
-        <h1>Past 7 Days</h1>
-        <h2>{this.props.location.place_name}</h2>
-        <h3>{this.props.location.coords.latitude}, {this.props.location.coords.longitude}</h3>
-        <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
-          <Line type="monotone" dataKey="temp" stroke="#8884d8" />
-          <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-        </LineChart>
-        <p>{descriptions[this.state.currentDescription].desc}</p>
-        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
-        <p>Click on another day to see its description above</p>
+       Wenis
       </div>
     );
   }
