@@ -15,7 +15,6 @@ class Content extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("New page:", nextProps.page);
     this.setState({ page: nextProps.page })
   }
 
@@ -30,11 +29,19 @@ class Content extends Component {
       'history': <History location={this.state.query} />,
       'about': "I am about!",
     }
-    return(
-      <div>
-        {pageFinder[this.state.page]}
-      </div>
-    );
+    if (this.state.query) {
+      return(
+        <div>
+          {pageFinder[this.state.page]}
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          {pageFinder['search']}
+        </div>
+      )
+    }
   }
 }
 
