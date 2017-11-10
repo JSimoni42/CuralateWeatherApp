@@ -19,31 +19,29 @@ class Content extends Component {
   }
 
   handleSearch(query) {
-    this.setState({ query: this.getLocation(query), page: 'current' })
-  }
-
-  getLocation(query) {
-    if (!query.coords) {
-      console.log(`Geolocating ${query.query_string}!`)
-      return 'geolocation';
-    } else {
-      console.log('Got a location!');
-      return query;
-    }
+    this.setState({ query, page: 'current' });
   }
 
   render(){
     const pageFinder = {
-      'search': <Search handleSearch={this.handleSearch}/>,
+      'search': <Search handleSearch={this.handleSearch} api_ready={this.props.api_ready}/>,
       'current': <Current location={this.state.query} />,
       'history': <History location={this.state.query} />,
       'about': "I am about!",
     }
-    return(
-      <div>
-        {pageFinder[this.state.page]}
-      </div>
-    );
+    if (this.state.query) {
+      return(
+        <div>
+          {pageFinder[this.state.page]}
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          {pageFinder['search']}
+        </div>
+      )
+    }
   }
 }
 

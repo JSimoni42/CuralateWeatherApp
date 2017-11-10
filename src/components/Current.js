@@ -12,7 +12,6 @@ import { data, descriptions } from '../FakeGraphData';
 class Current extends Component {
   constructor(){
     super();
-
     this.state = {
       currentDescription: 0,
     }
@@ -27,17 +26,11 @@ class Current extends Component {
   }
 
   render() {
-    if (this.props.location === 'geolocation') {
-      console.log("Current: Geolocation!");
-    } else if (this.props.location) {
-      console.log(`Current: ${this.props.location.coords.latitude}, ${this.props.location.coords.longitude}`);
-    } else {
-      console.log("Current: Didn't receive props!");
-    }
-
     return(
       <div>
         <h1>Current Forecast</h1>
+        <h2>{this.props.location.place_name}</h2>
+        <h3>{this.props.location.coords.latitude}, {this.props.location.coords.longitude}</h3>
         <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
