@@ -8,6 +8,7 @@ import {LineChart,
       } from 'recharts';
 import '../styles/current.css';
 import { data, descriptions } from '../FakeGraphData';
+import DarkSkyApi from 'dark-sky-api';
 
 class History extends Component {
   constructor(){
