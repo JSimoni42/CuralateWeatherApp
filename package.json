@@ -6,6 +6,7 @@
     "bootstrap": "^3.3.7",
     "dark-sky-api": "^0.6.21",
     "dotenv": "^4.0.0",
+    "moment": "^2.19.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-places-autocomplete": "^5.4.3",
