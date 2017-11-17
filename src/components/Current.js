@@ -7,6 +7,7 @@ import {LineChart,
         Tooltip
       } from 'recharts';
 import '../styles/current.css';
+import { formatData } from '../utils/utils.js';
 import { icons, dailyForecast, formattedForecast } from '../FakeGraphData';
 import DarkSkyApi from 'dark-sky-api';
 
