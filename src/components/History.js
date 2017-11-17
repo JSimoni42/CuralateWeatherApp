@@ -8,6 +8,7 @@ import {LineChart,
       } from 'recharts';
 import '../styles/current.css';
 import { data, formattedHistory, icons } from '../FakeGraphData';
+import { formatData, getDailyHistorical, last7Days } from '../utils/utils.js';
 import DarkSkyApi from 'dark-sky-api';
 import moment from 'moment';
 
@@ -20,6 +21,25 @@ class History extends Component {
     }
     DarkSkyApi.apiKey = '70cb406e46fe0848ebbd51bc18b2a2df';
     this.changeDescription = this.changeDescription.bind(this);
+  }
+
+  // onComponentWillMount(){
+  //   this.getHistory();
+  // }
+
+  getHistory() {
+    const moments = last7Days();
+    const history = [];
+
+    moments.forEach(moment => {
+      DarkSkyApi.loadTime(moment, this.props.coords)
+        .then(res => {
+          history.push(res);
+          if (history.length == 7){
+            this.setState({history: formatData(getDailyHistorical(history))});
+          }
+        });
+    });
   }
 
   changeDescription(event) {
