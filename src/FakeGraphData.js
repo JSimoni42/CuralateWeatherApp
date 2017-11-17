@@ -1,4 +1,4 @@
-import partly_cloudy_day from './img/partly-cloudy-day.svg';
+import partly_cloudy_day from './img/cloudy-day-3.svg';
 import partly_cloudy_night from './img/cloudy-night-3.svg';
 import cloudy from './img/cloudy.svg';
 import rain from './img/rainy-6.svg';
