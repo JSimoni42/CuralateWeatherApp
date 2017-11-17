@@ -7,7 +7,7 @@ import {LineChart,
         Tooltip
       } from 'recharts';
 import '../styles/current.css';
-import { data } from '../FakeGraphData';
+import { data, formattedHistory, icons } from '../FakeGraphData';
 import DarkSkyApi from 'dark-sky-api';
 import moment from 'moment';
 
@@ -30,12 +30,16 @@ class History extends Component {
   }
 
   render() {
+    const iconName = formattedHistory[this.state.currentDescription].icon;
+    const dailySummary = formattedHistory[this.state.currentDescription].summary;
+    const lat = this.props.location.coords.latitude.toPrecision(4);
+    const long = this.props.location.coords.longitude.toPrecision(4);
     return(
       <div>
         <h1>Past 7 Days</h1>
         <h2>{this.props.location.place_name}</h2>
-        <h3>{this.props.location.coords.latitude}, {this.props.location.coords.longitude}</h3>
-        <LineChart className="current-chart" width={800} height={400} data={data} onClick={this.changeDescription}>
+        <h3>{lat}, {long}</h3>
+        <LineChart className="current-chart" width={1000} height={400} data={formattedHistory} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
           <CartesianGrid stroke="#ccc" />
@@ -43,7 +47,9 @@ class History extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-
+        <h3>{formattedHistory[this.state.currentDescription].date}</h3>
+        <img className="weather-icon" src={icons[iconName]} alt={iconName} />
+        <p>{dailySummary}</p>
         <p>Click on another day to see its description above</p>
       </div>
     );
