@@ -2,6 +2,13 @@ import drop from './img/drop.svg';
 import flash from './img/flash.svg';
 import sunny from './img/sunny.svg';
 import snow from './img/snowflake.svg';
+import partly_cloudy_day from './img/static/partly-cloudy-day.svg';
+import partly_cloudy_night from './img/static/cloudy-night-3.svg';
+
+export const icons = {
+  'partly-cloudy-day': partly_cloudy_day,
+  'partly-cloudy-night': partly_cloudy_night,
+}
 
 export const data  = [
   {name: 'Today', temp: 78, humidity: 90},

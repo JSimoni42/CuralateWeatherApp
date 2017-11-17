@@ -7,7 +7,7 @@ import {LineChart,
         Tooltip
       } from 'recharts';
 import '../styles/current.css';
-import { data, descriptions } from '../FakeGraphData';
+import { data, descriptions, forecast, icons } from '../FakeGraphData';
 import DarkSkyApi from 'dark-sky-api';
 
 class Current extends Component {
@@ -31,6 +31,8 @@ class Current extends Component {
   }
 
   render() {
+    const iconName = forecast.daily.data[this.state.currentDescription].icon;
+    const dailySummary = forecast.daily.data[this.state.currentDescription].summary;
     return(
       <div>
         <h1>Current Forecast</h1>
@@ -44,8 +46,9 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-        <p>{descriptions[this.state.currentDescription].desc}</p>
-        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
+        <h3>{data[this.state.currentDescription].name}</h3>
+        <p>{dailySummary}</p>
+        <img className="weather-icon" src={icons[iconName]} alt={iconName} />
         <p>Click on another day to see its description above</p>
       </div>
     );
