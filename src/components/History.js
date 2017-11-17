@@ -7,7 +7,7 @@ import {LineChart,
         Tooltip
       } from 'recharts';
 import '../styles/current.css';
-import { data, descriptions } from '../FakeGraphData';
+import { data } from '../FakeGraphData';
 import DarkSkyApi from 'dark-sky-api';
 import moment from 'moment';
 
@@ -43,12 +43,14 @@ class History extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-        <p>{descriptions[this.state.currentDescription].desc}</p>
-        <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
+
         <p>Click on another day to see its description above</p>
       </div>
     );
   }
 }
+
+// <p>{descriptions[this.state.currentDescription].desc}</p>
+// <img className="weather-icon" src={descriptions[this.state.currentDescription].icon} alt="weather-icon" />
 
 export default History;

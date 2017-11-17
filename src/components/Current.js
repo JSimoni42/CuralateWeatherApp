@@ -32,11 +32,13 @@ class Current extends Component {
   render() {
     const iconName = dailyForecast[this.state.currentDescription].icon;
     const dailySummary = dailyForecast[this.state.currentDescription].summary;
+    const lat = this.props.location.coords.latitude.toPrecision(4);
+    const long = this.props.location.coords.longitude.toPrecision(4);
     return(
       <div>
         <h1>Current Forecast</h1>
         <h2>{this.props.location.place_name}</h2>
-        <h3>{this.props.location.coords.latitude}, {this.props.location.coords.longitude}</h3>
+        <h3>{lat}, {long}</h3>
         <LineChart className="current-chart" width={1000} height={400} data={formattedForecast} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
@@ -45,7 +47,7 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-        <h3>{formattedForecast[this.state.currentDescription].name}</h3>
+        <h3>{formattedForecast[this.state.currentDescription].date}</h3>
         <img className="weather-icon" src={icons[iconName]} alt={iconName} />
         <p>{dailySummary}</p>
         <p>Click on another day to see its description above</p>

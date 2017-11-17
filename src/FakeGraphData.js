@@ -1,13 +1,25 @@
-import drop from './img/drop.svg';
-import flash from './img/flash.svg';
-import sunny from './img/sunny.svg';
+import partly_cloudy_day from './img/partly-cloudy-day.svg';
+import partly_cloudy_night from './img/cloudy-night-3.svg';
+import cloudy from './img/cloudy.svg';
+import rain from './img/rainy-6.svg';
+import clear_day from './img/day.svg';
+import clear_night from './img/night.svg';
 import snow from './img/snowflake.svg';
-import partly_cloudy_day from './img/static/partly-cloudy-day.svg';
-import partly_cloudy_night from './img/static/cloudy-night-3.svg';
+import sleet from './img/snowy-6.svg';
+import weather from './img/weather.svg';
 
 export const icons = {
   'partly-cloudy-day': partly_cloudy_day,
   'partly-cloudy-night': partly_cloudy_night,
+  'clear-day': clear_day,
+  'clear-night': clear_night,
+  'rain': rain,
+  'snow': snow,
+  'sleet': sleet,
+  'wind': '',
+  'fog': '',
+  'cloudy': cloudy,
+  'default': weather,
 }
 
 export const data  = [
@@ -18,16 +30,6 @@ export const data  = [
  {name: 'Wednesday', temp: 73, humidity: 20},
  {name: 'Thursday', temp: 70, humidity: 10},
  {name: 'Friday', temp: 65, humidity: 5},
-];
-
-export const descriptions = [
-  {desc: "Today: Partly sunny with a chance of rain", icon: drop},
-  {desc: "Tomorrow: All sunny with tons of sun", icon: sunny},
-  {desc: "Monday: Who cares?", icon: flash},
-  {desc: "Tuesday: Weather.", icon: flash},
-  {desc: "Wednesday: Clouds with sky behind them, maybe some stars at night", icon: snow},
-  {desc: "Thursday: Who reads this, anyway?", icon: flash},
-  {desc: "Friday: I do weather things.", icon: snow}
 ];
 
 export const current = {
@@ -50,9 +52,9 @@ export const formattedForecast = (() => {
     let avgTemp = (day.temperatureMax + day.temperatureMin) / 2;
     avgTemp = avgTemp.toPrecision(4);
     const humidity = day.humidity * 100;
-    let weekday = new Date(day.dateTime);
-    weekday = weekdays[weekday.getDay()];
-    forecast.push({ name: weekday, temp: avgTemp, humidity: humidity });
+    const date = new Date(day.dateTime);
+    const weekday = weekdays[date.getDay()];
+    forecast.push({ name: weekday, temp: avgTemp, humidity: humidity, date: date.toDateString() });
   });
   return forecast;
 })();
