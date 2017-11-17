@@ -25,7 +25,6 @@ class History extends Component {
 
   // onComponentWillMount(){
   //   this.getHistory();
-  //   this.formatHistory();
   // }
 
   getHistory() {
@@ -33,18 +32,18 @@ class History extends Component {
     const history = [];
 
     moments.forEach(moment => {
-      DarkSkyApi.loadTime(moment, this.props.coords)
+      DarkSkyApi.loadTime(moment, this.props.location.coords)
         .then(res => {
           history.push(res);
           if (history.length == 7){
-            this.setState({ history });
+            this.formatHistory(history);
           }
         });
     });
   }
 
-  formatHistory() {
-    let history = this.state.history;
+  formatHistory(rawHistory) {
+    let history = rawHistory;
     history = getDailyHistorical(history);
     history = formatData(history);
     this.setState({ history });

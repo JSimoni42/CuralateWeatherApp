@@ -15,11 +15,28 @@ class Current extends Component {
     super();
     this.state = {
       currentDescription: 0,
-      currentWeather: "",
+      currentWeather: null,
     }
 
     DarkSkyApi.apiKey = '70cb406e46fe0848ebbd51bc18b2a2df';
     this.changeDescription = this.changeDescription.bind(this);
+  }
+
+  // onComponentWillMount() {
+  //   this.getForecast();
+  // }
+
+  getForecast() {
+    DarkSkyApi.getForecast(this.props.location.coords)
+      .then(res => {
+        this.formatForecast(res);
+      })
+  }
+
+  formatForecast(rawForecast) {
+    let forecast = rawForecast;
+    forecast = formatData(forecast.daily.data);
+    this.setState({ currentWeather: forecast });
   }
 
   changeDescription(event) {
