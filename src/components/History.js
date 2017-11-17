@@ -17,7 +17,7 @@ class History extends Component {
     super();
     this.state = {
       currentDescription: 0,
-      history: ""
+      history: null
     }
     DarkSkyApi.apiKey = '70cb406e46fe0848ebbd51bc18b2a2df';
     this.changeDescription = this.changeDescription.bind(this);
@@ -25,6 +25,7 @@ class History extends Component {
 
   // onComponentWillMount(){
   //   this.getHistory();
+  //   this.formatHistory();
   // }
 
   getHistory() {
@@ -36,10 +37,17 @@ class History extends Component {
         .then(res => {
           history.push(res);
           if (history.length == 7){
-            this.setState({history: formatData(getDailyHistorical(history))});
+            this.setState({ history });
           }
         });
     });
+  }
+
+  formatHistory() {
+    let history = this.state.history;
+    history = getDailyHistorical(history);
+    history = formatData(history);
+    this.setState({ history });
   }
 
   changeDescription(event) {
@@ -50,6 +58,12 @@ class History extends Component {
   }
 
   render() {
+    // if (!this.state.history) {
+    //   return (
+    //     <h3>Loading...</h3>
+    //   );
+    // }
+    // const formattedHistory = this.state.history;
     const iconName = formattedHistory[this.state.currentDescription].icon;
     const dailySummary = formattedHistory[this.state.currentDescription].summary;
     const lat = this.props.location.coords.latitude.toPrecision(4);

@@ -15,7 +15,6 @@ export const formatData = (dailyData) => {
   return formatted;
 };
 
-
 export const last7Days = () => {
   const moments = [];
   for (let i = 0; i <= 7; i++){
