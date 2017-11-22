@@ -7,8 +7,8 @@ import {LineChart,
         Tooltip
       } from 'recharts';
 import '../styles/current.css';
-import { formatData } from '../utils/utils.js';
-import { icons, } from '../FakeGraphData';
+import { formatData } from '../utils/utils';
+import { icons } from '../utils/icons';
 import DarkSkyApi from 'dark-sky-api';
 
 class Current extends Component {
