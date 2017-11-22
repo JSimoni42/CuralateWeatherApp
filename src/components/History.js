@@ -62,7 +62,6 @@ class History extends Component {
       );
     }
     const currentData = this.state.history[this.state.currentDescription];
-    console.log(currentData.icon);
     const lat = this.props.location.coords.latitude.toPrecision(4);
     const long = this.props.location.coords.longitude.toPrecision(4);
     return(
