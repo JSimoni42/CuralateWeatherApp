@@ -24,7 +24,7 @@ class Current extends Component {
   }
 
   componentWillMount() {
-    // this.getForecast();
+    this.getForecast();
   }
 
   getForecast() {
