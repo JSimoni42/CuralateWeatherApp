@@ -6,11 +6,17 @@ export const formatData = (dailyData) => {
   const formatted = [];
   dailyData.forEach((day) => {
     let avgTemp = (day.temperatureMax + day.temperatureMin) / 2;
-    avgTemp = avgTemp.toPrecision(4);
-    const humidity = day.humidity * 100;
+    avgTemp = avgTemp.toFixed(2);
+    const humidity = parseInt((day.humidity * 100).toFixed(0));
     const date = new Date(day.dateTime);
     const weekday = weekdays[date.getDay()];
-    formatted.push({ name: weekday, temp: avgTemp, humidity: humidity, date: date.toDateString() });
+    formatted.push({ name: weekday,
+                     temp: avgTemp,
+                     humidity: humidity,
+                     date: date.toDateString(),
+                     summary: day.summary,
+                     icon: day.icon,
+                   });
   });
   return formatted;
 };

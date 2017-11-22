@@ -8,7 +8,7 @@ import {LineChart,
       } from 'recharts';
 import '../styles/current.css';
 import { formatData } from '../utils/utils.js';
-import { icons, dailyForecast, formattedForecast } from '../FakeGraphData';
+import { icons, } from '../FakeGraphData';
 import DarkSkyApi from 'dark-sky-api';
 
 class Current extends Component {
@@ -23,20 +23,21 @@ class Current extends Component {
     this.changeDescription = this.changeDescription.bind(this);
   }
 
-  // onComponentWillMount() {
-  //   this.getForecast();
-  // }
+  componentWillMount() {
+    this.getForecast();
+  }
 
   getForecast() {
-    DarkSkyApi.getForecast(this.props.location.coords)
+    console.log("Request sent!");
+    DarkSkyApi.loadForecast(this.props.location.coords)
       .then(res => {
+        console.log("Request returned!");
         this.formatForecast(res);
-      })
+      });
   }
 
   formatForecast(rawForecast) {
-    let forecast = rawForecast;
-    forecast = formatData(forecast.daily.data);
+    const forecast = formatData(rawForecast.daily.data);
     this.setState({ currentWeather: forecast });
   }
 
@@ -48,8 +49,14 @@ class Current extends Component {
   }
 
   render() {
-    const iconName = dailyForecast[this.state.currentDescription].icon;
-    const dailySummary = dailyForecast[this.state.currentDescription].summary;
+    if (!this.state.currentWeather) {
+      return (
+        <div>
+          <h1>Loading</h1>
+        </div>
+      );
+    }
+    const currentData = this.state.currentWeather[this.state.currentDescription];
     const lat = this.props.location.coords.latitude.toPrecision(4);
     const long = this.props.location.coords.longitude.toPrecision(4);
     return(
@@ -57,7 +64,7 @@ class Current extends Component {
         <h1>Current Forecast</h1>
         <h2>{this.props.location.place_name}</h2>
         <h3>{lat}, {long}</h3>
-        <LineChart className="current-chart" width={1000} height={400} data={formattedForecast} onClick={this.changeDescription}>
+        <LineChart className="current-chart" width={1000} height={400} data={this.state.currentWeather} onClick={this.changeDescription}>
           <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           <Line type="monotone" dataKey="humidity" stroke="#1a1a1a" />
           <CartesianGrid stroke="#ccc" />
@@ -65,9 +72,9 @@ class Current extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
-        <h3>{formattedForecast[this.state.currentDescription].date}</h3>
-        <img className="weather-icon" src={icons[iconName]} alt={iconName} />
-        <p>{dailySummary}</p>
+        <h3>{currentData.date}</h3>
+        <img className="weather-icon" src={icons[currentData.icon]} alt={currentData.icon} />
+        <p>{currentData.summary}</p>
         <p>Click on another day to see its description above</p>
       </div>
     );
