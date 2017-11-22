@@ -24,14 +24,12 @@ class Current extends Component {
   }
 
   componentWillMount() {
-    this.getForecast();
+    // this.getForecast();
   }
 
   getForecast() {
-    console.log("Request sent!");
     DarkSkyApi.loadForecast(this.props.location.coords)
       .then(res => {
-        console.log("Request returned!");
         this.formatForecast(res);
       });
   }
