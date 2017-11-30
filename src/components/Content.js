@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from './Search';
 import Current from './Current';
 import History from './History';
+import About from './About';
 
 class Content extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Content extends Component {
       'search': <Search handleSearch={this.handleSearch} api_ready={this.props.api_ready}/>,
       'current': <Current location={this.state.query} />,
       'history': <History location={this.state.query} />,
-      'about': "I am about!",
+      'about': <About />,
     }
     if (this.state.query || this.state.page == 'about') {
       return(
