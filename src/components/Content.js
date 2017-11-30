@@ -30,7 +30,7 @@ class Content extends Component {
       'history': <History location={this.state.query} />,
       'about': <About />,
     }
-    if (this.state.query || this.state.page == 'about') {
+    if (this.state.query || this.state.page === 'about') {
       return(
         <div>
           {pageFinder[this.state.page]}
