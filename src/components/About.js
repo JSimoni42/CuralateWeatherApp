@@ -9,10 +9,10 @@ class About extends Component {
         <p>
           Hopefully, by this point, you've played around with the app a bit and have a feel for
           some of the features. It's a pretty straightforward, React app that uses some Google apis for
-          the autocomplete on the 'Search' tab (credit goes to --- for implementing a wonderful component),
+          the autocomplete on the 'Search' tab (credit goes to <a href="https://github.com/kenny-hibino">kenny-hibino</a> for implementing a wonderful component),
           and for getting Google Places information from a latitude and longitude (activated by the 'pin' icon also on
           the aforementioned tab). The latitude and longitude gets sent off to Dark Sky Api
-          (JavaScript api implemented by Dean Verlanger) to get weather data.
+          (JavaScript api implemented by <a href="https://github.com/deanbot">Dean Verlanger</a>) to get weather data.
         </p>
         <div className="spacer"></div>
         <p>
