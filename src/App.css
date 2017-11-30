@@ -5,3 +5,13 @@
 main {
   margin-top: 20px;
 }
+
+p {
+  width: 70%;
+  line-height: 1.5em;
+  margin: 0 auto;
+}
+
+.spacer {
+  margin-bottom: 1.5em;
+}
