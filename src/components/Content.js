@@ -29,7 +29,7 @@ class Content extends Component {
       'history': <History location={this.state.query} />,
       'about': "I am about!",
     }
-    if (this.state.query) {
+    if (this.state.query || this.state.page == 'about') {
       return(
         <div>
           {pageFinder[this.state.page]}
