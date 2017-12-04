@@ -1,3 +1,3 @@
 # WeatherApp
 
-Currently hosted on (heroku)[https://simoni-weather-app.herokuapp.com/]
+Currently hosted on [https://simoni-weather-app.herokuapp.com/](https://simoni-weather-app.herokuapp.com/)
